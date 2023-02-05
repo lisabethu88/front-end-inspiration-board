@@ -1,0 +1,85 @@
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color:lightblue;
+    width: 100%;
+    height: 100%;
+}
+
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.content-container{
+    background-color: yellow;
+    border: 2px dotted red;
+    height: 100%;
+    width: 100%;
+}
+
+.main-container{
+    background-color: orange;
+    border: 2px dotted red;
+    margin-bottom:50px;
+    padding:3em;
+}
+
+.board-container{
+    background-color: lightpink;
+    border: 2px dotted red;
+    padding: 10px;
+    margin-bottom:3em;
+    display: flex;
+}
+
+.board-list{
+    background-color: green;
+    border: 2px dotted red;
+    margin:auto;
+}
+
+.select-board{
+    background-color: blue;
+    border: 2px dotted red;
+    margin:auto;
+}
+
+.create-board{
+    background-color: purple;
+    border: 2px dotted red;
+    margin:auto;
+}
+
+.card-container{
+    background-color: greenyellow;
+    border: 2px dotted red;
+    padding:10px;
+    display: flex;
+}
+
+.new-card{
+    background-color: cyan;
+    border: 2px dotted red;
+    margin: auto;
+}
+
+.cards-list{
+    background-color: fuchsia;
+    border: 2px dotted red;
+    margin: auto;
+
+}
+
+.app-footer{
+    background-color: brown;
+    border: 2px dotted red;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+

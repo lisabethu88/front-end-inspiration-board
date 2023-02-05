@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 // title, owner name, and board_id 
 // (as the hidden, implied primary key).
 
-
 const BoardList = () => {
     return (
         <section>
