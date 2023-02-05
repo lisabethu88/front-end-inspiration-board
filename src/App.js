@@ -15,10 +15,8 @@ function App() {
       </header>
 
       <main className="main-container">
-        <p>this is the main container</p>
 
         <section className="board-container">
-          <p>this is the board container</p>
 
           <section className="board-list">
             <h2>Boards</h2>
@@ -38,24 +36,54 @@ function App() {
         </section>
 
         <section className="card-container">
-          <p>this is the card container</p>
 
           <section className="cards-list">
-            <h2>Cards for .....</h2>
+            <h2 id="cards-list-label">Cards for .....</h2>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+            <div className="sticky">
+              sticky
+            </div>
+
+            <div className="sticky">
+              sticky
+            </div><div className="sticky">
+              sticky
+            </div>
           </section>
 
           <section className="new-card">
             <h2>Create a New Card</h2>
+            <p>this is the new card container</p>
           </section>
 
         </section>
         
       </main>
 
-      <footer className="app-footer">
-        <p>this is the footer</p>
-      </footer>
-      
+
     </section>
     
   );

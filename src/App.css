@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+
 html {
     width: 100%;
     height: 100%;
@@ -12,6 +14,7 @@ body {
 #root {
     width: 100%;
     height: 100%;
+    margin: 0;
 }
 
 .content-container{
@@ -24,16 +27,18 @@ body {
 .main-container{
     background-color: orange;
     border: 2px dotted red;
-    margin-bottom:50px;
-    padding:3em;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .board-container{
     background-color: lightpink;
     border: 2px dotted red;
     padding: 10px;
-    margin-bottom:3em;
+    margin-bottom:0;
     display: flex;
+    width:100%;
 }
 
 .board-list{
@@ -55,31 +60,64 @@ body {
 }
 
 .card-container{
+    width: 100%;
     background-color: greenyellow;
     border: 2px dotted red;
-    padding:10px;
+    padding: 10px;
     display: flex;
+    margin: auto;
+    
 }
 
 .new-card{
     background-color: cyan;
     border: 2px dotted red;
     margin: auto;
+    width: 200px;
+
 }
 
 .cards-list{
-    background-color: fuchsia;
-    border: 2px dotted red;
-    margin: auto;
-
+    border: 10px solid #ddd;
+    border-radius: 4px;
+    max-width:50%;
+    position: relative;
+    min-width:30%;
+    height:100%;
+    background-image: url("./images/bg.jpg");
+    background-repeat: repeat;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: 0.5fr 1fr 1fr; 
+    gap: 0px 0px;
+    overflow:hidden;
+    box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    -webkit-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    -moz-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
 }
 
-.app-footer{
-    background-color: brown;
-    border: 2px dotted red;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
+#cards-list-label{
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    background-color:antiquewhite;
+    margin:10px;
+    box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+    -webkit-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+    -moz-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+}
+
+
+.sticky{
+    font-family: 'Gloria Hallelujah', cursive;
+    width:150px;
+    height: 100px;
+    margin:10px;
+    border: 2px solid yellow;
+    background-color: yellow;
+    box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+    -webkit-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+    -moz-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
 }
 
