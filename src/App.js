@@ -1,15 +1,37 @@
 import './App.css';
 import { useState, useEffect } from "react";
 import BoardList from './components/BoardList';
+import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import axios from "axios";
 
 const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
+
 function App() {
+  const [boardChoice, setBoardChoice] = useState({
+      board_id: '',
+      title: '',
+      owner: ''
+  });
+
+  const chooseBoard = (board) => {
+    setBoardChoice(board);
+  };
+  // get boards 
+  // const boardPosts = map
+
+  const selectBoardMessage = () => {
+    if (boardChoice.board_id) {
+      return (
+      `${boardChoice.title} - created by ${boardChoice.owner}`
+      )
+    };
+
+
+  }
   return (
     <section className="content-container">
-
       <header className="app-header">
         <h1>Inspiration Board</h1>
       </header>
@@ -24,8 +46,8 @@ function App() {
           </section>
 
           <section className="select-board">
-            <h2>Select Board</h2>
-            <p>this is the select board container</p>
+            <h2>Selected Bpard</h2>
+            <p>{selectBoardMessage}</p>
           </section>
 
           <section className="create-board">
@@ -34,44 +56,44 @@ function App() {
           </section>
 
         </section>
-
-        <section className="card-container">
+      <section className="card-container">
 
           <section className="cards-list">
             <h2 id="cards-list-label">Cards for .....</h2>
-            <div className="sticky">
+            
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
-            <div className="sticky">
+            </section>
+            <section className="sticky">
               sticky
-            </div>
+            </section>
 
-            <div className="sticky">
+            <section className="sticky">
               sticky
-            </div><div className="sticky">
+            </section><section className="sticky">
               sticky
-            </div>
+            </section>
           </section>
 
           <section className="new-card">
@@ -80,10 +102,7 @@ function App() {
           </section>
 
         </section>
-        
       </main>
-
-
     </section>
     
   );

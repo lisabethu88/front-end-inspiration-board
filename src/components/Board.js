@@ -8,7 +8,8 @@ owner string
 */
 // props 
 // board
-// onBoardSelect
+// onBoardSelect will make card ontainer appear and the card list
+// we selected will appear
 
 const Board = () => {
     return (
