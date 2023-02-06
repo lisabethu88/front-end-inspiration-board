@@ -23,9 +23,11 @@ const getAllBoards = () => {
   return axios
     .get(`${kBaseUrl}/boards`)
     .then((response) => {
+      console.log(response.data)
       return response.data.map(transformResponse);
     })
     .catch((error) => {
+      console.log("oh no theres an error in getAllBoards!")
       console.log(error);
     });
 };
@@ -36,13 +38,14 @@ const addBoard = (boardData) => {
     ...boardData,
     likes_count: 0
   };
-
+  console.log("im in addBoard!")
   return axios
     .post(`${kBaseUrl}/boards`, [requestBody])
     .then((response) => {
       return response.data.map(transformResponse);
     })
     .catch((error) => {
+      console.log("oh no an error occured in addBoard")
       console.log(error);
     });
 };
@@ -50,7 +53,7 @@ const addBoard = (boardData) => {
 /* ------------------- STATE ------------------- */
   // getting state of the selected board, initially 
   // a dictionary of empty strings
-const [selectedBoard, setBoardChoice] = useState({
+const [selectedBoard, setSelectedBoard] = useState({
       board_id: '',
       title: '',
       owner: ''
@@ -58,11 +61,19 @@ const [selectedBoard, setBoardChoice] = useState({
 
   // set the state of the selected board
   const selectBoard = (board) => {
-    setBoardChoice(board);
+    setSelectedBoard(board);
   };
 
   // getting state of the board, initally an empty list
   const [boardState, setBoardState] = useState([]);
+
+  // updating board state
+  useEffect(() => {
+    axios.get(`${kBaseUrl}/boards`, {
+    }).then((response) => {
+      setBoardState(response.data);
+    })
+  }, []);
 
   // getting all boards
   const fetchBoards = () => {
@@ -106,6 +117,10 @@ const [selectedBoard, setBoardChoice] = useState({
     };
   };
 
+  const boards = boardState.map((board) => {
+    return <Board onBoardSelect={selectBoard} board={board}/>
+});
+
   return (
     <section className="content-container">
 
@@ -120,7 +135,7 @@ const [selectedBoard, setBoardChoice] = useState({
           <section className="board-list-container">
             <h2>Boards</h2>
             <ol className="boards">
-              <Board onBoardSelect={selectBoard} board={selectedBoard}/>
+              {boards}
             </ol>
           </section>
 

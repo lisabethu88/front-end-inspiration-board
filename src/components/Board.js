@@ -1,11 +1,7 @@
 import { React, useState } from "react";
 import "./Board.css";
 import PropTypes from "prop-types";
-/*
-board_id integer 
-title string
-owner string
-*/
+
 // props 
 // board
 // onBoardSelect will make card ontainer cappear and the card list
