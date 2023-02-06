@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import "./Board.css";
 import PropTypes from "prop-types";
 /*
@@ -8,12 +8,13 @@ owner string
 */
 // props 
 // board
-// onBoardSelect will make card ontainer appear and the card list
+// onBoardSelect will make card ontainer cappear and the card list
 // we selected will appear
 
-const Board = () => {
+const Board = ({ onBoardSelect, board}) => {
     return (
-        <li>   
+        <li onClick={ onBoardSelect(board) }> 
+            { board.title } 
         </li>
     )
 

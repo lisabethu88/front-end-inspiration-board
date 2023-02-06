@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 
-const kDefaultFormState = {
-    message: ""
-};
-
 const NewCardForm = ({ addNewCard }) => {
 // use state -> card message
 // handle message state
-    const [message, setMessage] = useState(kDefaultFormState);
+    const [message, setMessage] = useState("");
     const handleChange = (event) => {
         setMessage(event.target.value);
     }
@@ -29,8 +25,11 @@ const NewCardForm = ({ addNewCard }) => {
                 <input 
                     type="text" 
                     id="message-input" 
-                    value={message}/>
-                    onChange={handleChange}
+                    maxlength="150"
+                    minlength="1"
+                    value={message}
+                    onChange={handleChange}/>
+                    
                 <input type="submit" value="Add New Card"/>
             </form>
     </section>

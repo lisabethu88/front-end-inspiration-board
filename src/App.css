@@ -41,10 +41,12 @@ body {
     width:100%;
 }
 
-.board-list{
+.board-list-container{
     background-color: green;
     border: 2px dotted red;
     margin:auto;
+    width: 100%;
+    height: 100%;
 }
 
 .boards{
@@ -55,16 +57,20 @@ body {
     overflow:auto;
 }
 
-.select-board{
+.select-board-container{
     background-color: blue;
     border: 2px dotted red;
     margin:auto;
+    width: 100%;
+    height: 100%;
 }
 
-.create-board{
+.create-board-container{
     background-color: purple;
     border: 2px dotted red;
     margin:auto;
+    width: 100%;
+    height: 100%;
 }
 
 .card-container{
@@ -131,3 +137,7 @@ body {
     -moz-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
 }
 
+.new-board-form{
+    background-color: antiquewhite;
+    text-align: center;
+}

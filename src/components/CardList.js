@@ -27,7 +27,6 @@ const CardList = ({ board }) =>{
         });
     };
 
-
     return (
         <section className="card-container">
             <section className="cards-list">

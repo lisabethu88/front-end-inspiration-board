@@ -1,12 +1,13 @@
 import './App.css';
 import { useState, useEffect } from "react";
-import BoardList from './components/BoardList';
+import Board from './components/Board';
 import CardList from './components/CardList';
 import NewBoardForm from './components/NewBoardForm';
 import axios from "axios";
 
 const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
+function App(){
 // for formatting HTTP response
 const transformResponse = (board) => {
   const {
@@ -16,7 +17,7 @@ const transformResponse = (board) => {
   } = board;
   return { board_id, title, owner };
 }; 
-/* 
+/* ---------------API CALLS--------------- */
 // GET /boards
 const getAllBoards = () => {
   return axios
@@ -45,18 +46,18 @@ const addBoard = (boardData) => {
       console.log(error);
     });
 };
- */
-function App(){
+
+/* ------------------- STATE ------------------- */
   // getting state of the selected board, initially 
   // a dictionary of empty strings
-/*    const [boardChoice, setBoardChoice] = useState({
+const [selectedBoard, setBoardChoice] = useState({
       board_id: '',
       title: '',
       owner: ''
   });
 
   // set the state of the selected board
-  const chooseBoard = (board) => {
+  const selectBoard = (board) => {
     setBoardChoice(board);
   };
 
@@ -70,34 +71,44 @@ function App(){
       });
     };
 
-  // fetchBoards only runs on first render
   useEffect(() => {
     fetchBoards();
   }, []);
 
-  const selectBoardMessage = () => {
-    if (boardChoice.board_id) {
-      return (
-      `${boardChoice.title} board created by ${boardChoice.owner}`
-      )
-    }
-    else {
-      return ("Select a board from the list")}
+  const createNewBoard = (boardFormData) => {
+    console.log(boardFormData);
+      addBoard(boardFormData)
+      .then((newBoards) => {
+        setBoardState(newBoards);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const [visible, setVisibility] = useState(false);
-  const changeVisibility = () => {
-    setVisibility(!visible);
-  };
-  const isBoardVisible = () => {
-    if (boardChoice.board_id) {
+  const selectBoardMessage = () => {
+    if (selectedBoard.board_id) {
       return (
-        <CardList board={boardChoice}></CardList>
+      `${selectedBoard.title} board created by ${selectedBoard.owner}`
       )
+    }
+    return ("Select a Board from the Board List")
   };
-  */
+
+  const [isBoardFormVisible, setVisibility] = useState(false);
+  const onClickBoardFormButton = () => setVisibility(!isBoardFormVisible);
+
+  const showBoard = () => {
+    if (selectedBoard.board_id) {
+      return (
+        <CardList board={selectedBoard}></CardList>
+      )
+    };
+  };
+
   return (
     <section className="content-container">
+
       <header className="app-header">
         <h1>Inspiration Board</h1>
       </header>
@@ -106,31 +117,37 @@ function App(){
 
         <section className="board-container">
 
-          <section className="board-list">
+          <section className="board-list-container">
             <h2>Boards</h2>
             <ol className="boards">
-              {/*boardState*/}
+              <Board onBoardSelect={selectBoard} board={selectedBoard}/>
             </ol>
-            <p>this is the board list container</p>
           </section>
 
-          <section className="select-board">
+          <section className="select-board-container">
             <h2>Selected Board</h2>
-            <p>{/*selectBoardMessage*/}</p>
+            <p>{selectBoardMessage()}</p>
           </section>
 
-        
-          <section className="create-board">
+          <section className="create-board-container">
             <h2>Create Board</h2>
-            <p>this is the create board container</p>
+            <section className="new-board-form">
+              {isBoardFormVisible ? "" : <NewBoardForm createNewBoard={createNewBoard}/>}
+              <button onClick={onClickBoardFormButton}>
+                {isBoardFormVisible ? "Show New Board Form" : "Hide New Board Form"}
+              </button>
+            </section>
           </section>
 
-          {/*isBoardVisible*/}
-
+          <section>
+            {showBoard()}
+          </section>
+          
         </section>   
       </main>
     </section> 
   )
+
 };
 
 export default App;
