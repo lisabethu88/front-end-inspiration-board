@@ -23,6 +23,7 @@ const getAllBoards = () => {
   return axios
     .get(`${kBaseUrl}/boards`)
     .then((response) => {
+      console.log("im in get all boards and this is the response data:")
       console.log(response.data)
       return response.data.map(transformResponse);
     })
@@ -33,16 +34,16 @@ const getAllBoards = () => {
 };
 
 // POST /boards
-const addBoard = (boardData) => {
+const addBoard = (title, owner) => {
   const requestBody = {
-    ...boardData,
-    likes_count: 0
+    title,
+    owner
   };
   console.log("im in addBoard!")
   return axios
     .post(`${kBaseUrl}/boards`, [requestBody])
     .then((response) => {
-      return response.data.map(transformResponse);
+      return transformResponse(response.data);
     })
     .catch((error) => {
       console.log("oh no an error occured in addBoard")
@@ -86,13 +87,16 @@ const [selectedBoard, setSelectedBoard] = useState({
     fetchBoards();
   }, []);
 
-  const createNewBoard = (boardFormData) => {
-    console.log(boardFormData);
-      addBoard(boardFormData)
-      .then((newBoards) => {
-        setBoardState(newBoards);
+  const createNewBoard = (title, owner) => {
+    console.log(title, owner);
+      addBoard(title, owner)
+      .then((newBoard) => {
+        console.log('this is newBoards:')
+        console.log(newBoard)
+        setSelectedBoard(newBoard);
       })
       .catch((error) => {
+        console.log('newBoard error:')
         console.log(error);
       });
   };
@@ -116,9 +120,10 @@ const [selectedBoard, setSelectedBoard] = useState({
       )
     };
   };
-
+  console.log("this is the boardstate")
+  console.log(boardState)
   const boards = boardState.map((board) => {
-    return <Board onBoardSelect={selectBoard} board={board}/>
+    return <li><Board onBoardSelect={selectBoard} board={board}/></li>
 });
 
   return (
@@ -155,7 +160,7 @@ const [selectedBoard, setSelectedBoard] = useState({
           </section>
 
           <section>
-            {showBoard()}
+            {showBoard}
           </section>
           
         </section>   

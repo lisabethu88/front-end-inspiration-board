@@ -9,9 +9,9 @@ import PropTypes from "prop-types";
 
 const Board = ({ onBoardSelect, board}) => {
     return (
-        <li onClick={ onBoardSelect(board) }> 
+        <p onClick={ onBoardSelect(board) }> 
             { board.title } 
-        </li>
+        </p>
     )
 
 };
