@@ -35,6 +35,7 @@ const CardList = ({ board }) =>{
             </section>
         <NewCardForm addNewCard={addNewCard} />
         </section>
+
     )
 };
 

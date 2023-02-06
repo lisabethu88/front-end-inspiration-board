@@ -21,7 +21,6 @@ const NewCardForm = ({ addNewCard }) => {
         setMessage("");
     }
 
-
     return (
     <section className="new-card">
         <h2>Create a New Card</h2>

@@ -7,29 +7,95 @@ import axios from "axios";
 
 const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 
+// for formatting HTTP response
+const transformResponse = (board) => {
+  const {
+      board_id,
+      title,
+      owner
+  } = board;
+  return { board_id, title, owner };
+}; 
+/* 
+// GET /boards
+const getAllBoards = () => {
+  return axios
+    .get(`${kBaseUrl}/boards`)
+    .then((response) => {
+      return response.data.map(transformResponse);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-function App() {
-  const [boardChoice, setBoardChoice] = useState({
+// POST /boards
+const addBoard = (boardData) => {
+  const requestBody = {
+    ...boardData,
+    likes_count: 0
+  };
+
+  return axios
+    .post(`${kBaseUrl}/boards`, [requestBody])
+    .then((response) => {
+      return response.data.map(transformResponse);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+ */
+function App(){
+  // getting state of the selected board, initially 
+  // a dictionary of empty strings
+/*    const [boardChoice, setBoardChoice] = useState({
       board_id: '',
       title: '',
       owner: ''
   });
 
+  // set the state of the selected board
   const chooseBoard = (board) => {
     setBoardChoice(board);
   };
-  // get boards 
-  // const boardPosts = map
+
+  // getting state of the board, initally an empty list
+  const [boardState, setBoardState] = useState([]);
+
+  // getting all boards
+  const fetchBoards = () => {
+      getAllBoards().then((boards) => {
+        setBoardState(boards);
+      });
+    };
+
+  // fetchBoards only runs on first render
+  useEffect(() => {
+    fetchBoards();
+  }, []);
 
   const selectBoardMessage = () => {
     if (boardChoice.board_id) {
       return (
-      `${boardChoice.title} - created by ${boardChoice.owner}`
+      `${boardChoice.title} board created by ${boardChoice.owner}`
       )
-    };
+    }
+    else {
+      return ("Select a board from the list")}
+  };
 
-
-  }
+  const [visible, setVisibility] = useState(false);
+  const changeVisibility = () => {
+    setVisibility(!visible);
+  };
+  const isBoardVisible = () => {
+    if (boardChoice.board_id) {
+      return (
+        <CardList board={boardChoice}></CardList>
+      )
+  };
+  */
   return (
     <section className="content-container">
       <header className="app-header">
@@ -42,70 +108,29 @@ function App() {
 
           <section className="board-list">
             <h2>Boards</h2>
+            <ol className="boards">
+              {/*boardState*/}
+            </ol>
             <p>this is the board list container</p>
           </section>
 
           <section className="select-board">
-            <h2>Selected Bpard</h2>
-            <p>{selectBoardMessage}</p>
+            <h2>Selected Board</h2>
+            <p>{/*selectBoardMessage*/}</p>
           </section>
 
+        
           <section className="create-board">
             <h2>Create Board</h2>
             <p>this is the create board container</p>
           </section>
 
-        </section>
-      <section className="card-container">
+          {/*isBoardVisible*/}
 
-          <section className="cards-list">
-            <h2 id="cards-list-label">Cards for .....</h2>
-            
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-            <section className="sticky">
-              sticky
-            </section>
-
-            <section className="sticky">
-              sticky
-            </section><section className="sticky">
-              sticky
-            </section>
-          </section>
-
-          <section className="new-card">
-            <h2>Create a New Card</h2>
-            <p>this is the new card container</p>
-          </section>
-
-        </section>
+        </section>   
       </main>
-    </section>
-    
-  );
-}
+    </section> 
+  )
+};
 
 export default App;
