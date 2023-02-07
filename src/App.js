@@ -21,14 +21,11 @@ const transformResponse = (board) => {
 // GET /boards
 const getAllBoards = () => {
   return axios
-    .get(`${kBaseUrl}/boards`)
+    .get(`${kBaseUrl}boards`)
     .then((response) => {
-      console.log("im in get all boards and this is the response data:")
-      console.log(response.data)
       return response.data.map(transformResponse);
     })
     .catch((error) => {
-      console.log("oh no theres an error in getAllBoards!")
       console.log(error);
     });
 };
@@ -39,14 +36,12 @@ const addBoard = (title, owner) => {
     title,
     owner
   };
-  console.log("im in addBoard!")
   return axios
-    .post(`${kBaseUrl}/boards`, [requestBody])
+    .post(`${kBaseUrl}boards`, requestBody)
     .then((response) => {
       return transformResponse(response.data);
     })
     .catch((error) => {
-      console.log("oh no an error occured in addBoard")
       console.log(error);
     });
 };
@@ -70,9 +65,8 @@ const [selectedBoard, setSelectedBoard] = useState({
 
   // updating board state
   useEffect(() => {
-    axios.get(`${kBaseUrl}/boards`, {
+    axios.get(`${kBaseUrl}boards`, {
     }).then((response) => {
-      console.log(response.data)
       setBoardState(response.data);
     })
   }, []);
@@ -89,38 +83,23 @@ const [selectedBoard, setSelectedBoard] = useState({
   }, []);
 
   const createNewBoard = (title, owner) => {
-    console.log(title, owner);
       addBoard(title, owner)
       .then((newBoard) => {
-        console.log('this is newBoard:')
-        console.log(newBoard)
         setBoardState(boardState => [...boardState, newBoard]);
       })
       .catch((error) => {
-        console.log('newBoard error:')
         console.log(error);
       });
   };
+  const selectMsg = `${selectedBoard.title} board created by ${selectedBoard.owner}`;
+  const unselectMsg = "Select a Board from the Board List"
+  const selectBoardMessage = selectedBoard.board_id ? selectMsg : unselectMsg;
 
-  const selectBoardMessage = () => {
-    if (selectedBoard.board_id) {
-      return (
-      `${selectedBoard.title} board created by ${selectedBoard.owner}`
-      )
-    }
-    return ("Select a Board from the Board List")
-  };
 
   const [isBoardFormVisible, setVisibility] = useState(false);
   const onClickBoardFormButton = () => setVisibility(!isBoardFormVisible);
 
-  const showBoard = () => {
-    if (selectedBoard.board_id) {
-      return (
-        <CardList board={selectedBoard}></CardList>
-      )
-    };
-  };
+  const showBoard = selectedBoard.board_id ? <CardList board={selectedBoard}/> : "";
 
   const boards = boardState.map((boardItem) => {
     return (<li><Board board={boardItem} selectBoard={selectBoard}/></li>)
@@ -147,7 +126,7 @@ const [selectedBoard, setSelectedBoard] = useState({
 
           <section className="select-board-container">
             <h2>Selected Board</h2>
-            <p>{selectBoardMessage()}</p>
+            <p>{selectBoardMessage}</p>
           </section>
 
           <section className="create-board-container">
@@ -160,11 +139,12 @@ const [selectedBoard, setSelectedBoard] = useState({
             </section>
           </section>
 
-          <section>
-            {showBoard}
-          </section>
-          
         </section>   
+
+        <section>
+            {showBoard}
+        </section>
+        
       </main>
     </section> 
   )

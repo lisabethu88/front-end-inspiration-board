@@ -1,0 +1,11 @@
+#cards-list-label{
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    background-color:antiquewhite;
+    margin:10px;
+    box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+    -webkit-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+    -moz-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
+}

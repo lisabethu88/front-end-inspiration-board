@@ -11,7 +11,7 @@ const NewCardForm = ({ addNewCard }) => {
     const tooLong = message.length > 40 ? true : false;
     const tooShort = message.length === 0 ? true : false;
 
-    const newCardSubmit = (event) => {
+    const formSubmit = (event) => {
         event.preventDefault();
         addNewCard(message);
         setMessage("");
@@ -20,7 +20,7 @@ const NewCardForm = ({ addNewCard }) => {
     return (
     <section className="new-card">
         <h2>Create a New Card</h2>
-            <form onSubmit={newCardSubmit}>
+            <form onSubmit={formSubmit}>
                 <label for="message-input">Message</label>
                 <input 
                     type="text" 
