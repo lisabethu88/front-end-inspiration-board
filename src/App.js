@@ -72,6 +72,7 @@ const [selectedBoard, setSelectedBoard] = useState({
   useEffect(() => {
     axios.get(`${kBaseUrl}/boards`, {
     }).then((response) => {
+      console.log(response.data)
       setBoardState(response.data);
     })
   }, []);
@@ -91,9 +92,9 @@ const [selectedBoard, setSelectedBoard] = useState({
     console.log(title, owner);
       addBoard(title, owner)
       .then((newBoard) => {
-        console.log('this is newBoards:')
+        console.log('this is newBoard:')
         console.log(newBoard)
-        setSelectedBoard(newBoard);
+        setBoardState(boardState => [...boardState, newBoard]);
       })
       .catch((error) => {
         console.log('newBoard error:')
@@ -125,6 +126,7 @@ const [selectedBoard, setSelectedBoard] = useState({
   const boards = boardState.map((board) => {
     return <li><Board onBoardSelect={selectBoard} board={board}/></li>
 });
+
 
   return (
     <section className="content-container">
