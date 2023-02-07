@@ -1,6 +1,7 @@
 .new-card-form{
     background-color: cyan;
     border: 2px dotted red;
-    margin: auto;
+    margin: 200px;
     width: 200px;
+    height:300px;
 }
