@@ -121,8 +121,7 @@ const [selectedBoard, setSelectedBoard] = useState({
       )
     };
   };
-  console.log("this is the boardstate")
-  console.log(boardState)
+  
   const boards = boardState.map((board) => {
     return <li><Board onBoardSelect={selectBoard} board={board}/></li>
 });
