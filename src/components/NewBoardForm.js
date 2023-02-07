@@ -1,10 +1,5 @@
 import React, { useState } from "react";
-
-/* Props:
-    createNewBoard
-State:
-    title
-    owner */
+import "./NewBoardForm.css";
 
 const NewBoardForm = ({ createNewBoard }) => {
     const [title, setTitle] = useState("");
