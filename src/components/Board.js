@@ -7,10 +7,10 @@ import PropTypes from "prop-types";
 // onBoardSelect will make card ontainer cappear and the card list
 // we selected will appear
 
-const Board = ({ onBoardSelect, board}) => {
+const Board = ({ board, selectBoard }) => {
     return (
-        <p onClick={ onBoardSelect(board) }> 
-            { board.title } 
+        <p className="board-list-item" onClick={()=>selectBoard(board)}> 
+            { board.title }
         </p>
     )
 

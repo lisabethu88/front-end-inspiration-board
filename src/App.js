@@ -121,10 +121,10 @@ const [selectedBoard, setSelectedBoard] = useState({
       )
     };
   };
-  
-  const boards = boardState.map((board) => {
-    return <li><Board onBoardSelect={selectBoard} board={board}/></li>
-});
+
+  const boards = boardState.map((boardItem) => {
+    return (<li><Board board={boardItem} selectBoard={selectBoard}/></li>)
+  });
 
 
   return (
