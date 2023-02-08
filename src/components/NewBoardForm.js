@@ -22,14 +22,14 @@ const NewBoardForm = ({ createNewBoard }) => {
             <form onSubmit={formSubmit}>
                 <section>
                     <label for="title-input">Title</label><br/>
-                    <input 
+                    <input className="input"
                         type="text" 
                         id="title-input" 
                         value={title}
                         maxlength="40"
                         onChange={handleTitle}/><br/>
                     <label for="owner-input">Owner</label><br/>
-                    <input 
+                    <input className="input"
                         type="text" 
                         id="owner-input" 
                         value={owner}

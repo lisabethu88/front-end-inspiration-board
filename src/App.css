@@ -1,14 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&display=swap');
+@media screen and (max-width: 550px) {
+    header div.logo {
+      margin-left: 0.5rem;
+    }
+    header div.logo img {
+      width: 35px;
+      height: 35px;
+    }
+  }
 html {
     width: 100%;
     height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+
+    
 }
 
 body {
-    background-color:lightblue;
+    background-color:white;
     width: 100%;
     height: 100%;
+    background: rgb(255,255,255);    
 }
 
 #root {
@@ -16,87 +30,131 @@ body {
     height: 100%;
     margin: 0;
 }
+header{
+    
+    background-color: rgba(73, 121, 118, 0.694);
+    padding: 10px;
+    box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    -webkit-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    -moz-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+}
 
+h1{
+    font-family: 'Roboto', sans-serif;
+    font-size: 50px;
+    margin: 10px;
+    color: white;
+    text-shadow: 2px 2px 2px #507478;
+    
+
+}
+
+.h2-board-menu{
+    color: white;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px #507478;
+    background-color: rgba(59, 42, 27, 0.262);
+    border-radius: 10px;
+    margin: 10px;
+
+}
 .content-container{
-    background-color: yellow;
-    border: 2px dotted red;
+    /* background-color: yellow; */
+    /* border: 2px dotted red; */
     height: 100%;
     width: 100%;
 }
 
 .main-container{
-    background-color: orange;
-    border: 2px dotted red;
+    /* background-color: orange; */
+    /* border: 2px dotted red; */
     width: 100%;
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .board-container{
-    background-color: lightpink;
-    border: 2px dotted red;
+    border:1px solid #50747870;
+    font-family: 'Roboto', sans-serif;
+     /* border: 2px dotted red; */
     padding: 10px;
     margin-bottom:0;
     display: flex;
     width:100%;
+    text-align: center;
+    color: white;
+    background: linear-gradient(150deg, rgba(240,166,166,1) 0%, rgba(234,224,218,1) 35%, rgba(234,224,218,1) 53%, rgba(188,206,203,1) 73%, rgba(92,189,185,1) 100%);     /* background-color:  #fbe3e8; */
+
 }
 
 .board-list-container{
-    background-color: green;
-    border: 2px dotted red;
-    margin:auto;
+    /* background-color: green; */
+    /* border: 2px dotted red; */
     width: 100%;
     height: 100%;
+    
 }
 
 .boards{
+    box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    -webkit-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    -moz-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    color: #337270;
     background-color:white;
-    width: 300px;
     height:200px;
-    margin: 20px;
+    text-align: center;
     overflow:auto;
+    margin-left: 100px;
+    margin:0px 50px 50px 50px; 
+    border-radius: 15px;
 }
 
+
 .select-board-container{
-    background-color: blue;
-    border: 2px dotted red;
+    /* background-color: blue; */
+    /* border: 2px dotted red; */
     margin:auto;
     width: 100%;
     height: 100%;
+    color: #337270;
+    font-size: 20px;
 }
 
 .create-board-container{
-    background-color: purple;
-    border: 2px dotted red;
+    /* background-color: purple; */
+    /* border: 2px dotted red; */
     margin:auto;
     width: 100%;
     height: 100%;
+    color: #337270;
 }
 
 .card-container{
-    width: 100%;
-    background-color: greenyellow;
-    border: 2px dotted red;
+    width:100%;
+    /* background-color: greenyellow; */
+    /* border: 2px dotted red; */
     padding: 10px;
     display: flex;
-    margin: auto;
+    margin: 0;
+    text-align: center;
     
 }
 
 .cards-list{
+    margin-left: 150px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: start;
+    justify-content: center;
     align-items: auto;
     align-content: start;
     border: 10px solid #ddd;
-    border-radius: 4px;
-    max-width:50%;
+    border-radius: 15px;
     position: relative;
-    min-width:534px;
+    width:1000px;
     height:100%;
-    min-height: 300px;
+    min-height: 400px;
     background-image: url("./images/bg.jpg");
     background-repeat: repeat;
     overflow:hidden;
@@ -106,6 +164,5 @@ body {
 }
 
 .new-board-form{
-    background-color: antiquewhite;
     text-align: center;
 }

@@ -22,14 +22,14 @@ const NewCardForm = ({ addNewCard }) => {
     <section className="new-card-form">
         <h2>Create a New Card</h2>
             <form onSubmit={formSubmit}>
-                <label for="message-input">Message</label>
+                <label for="message-input">Message</label><br/>
                 <input 
                     type="text" 
                     id="message-input" 
                     maxlength="150"
                     minlength="1"
                     value={message}
-                    onChange={handleChange}/>
+                    onChange={handleChange}/><br/>
                     
                 <input type="submit" value="Add New Card"/>
             </form>

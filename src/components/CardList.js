@@ -14,7 +14,7 @@ const CardList = ({board}) =>{
 
     // I still dont fully understand how this works
     useEffect(() => {
-        axios.get(`${kBaseUrl}boards/${board.board_id}/cards`)
+        axios.get(`${kBaseUrl}/boards/${board.board_id}/cards`)
         .then((response) => {
             setCardsState(response.data);
         })
@@ -29,7 +29,7 @@ const CardList = ({board}) =>{
             likes_count: 0
         }
         return axios
-        .post(`${kBaseUrl}boards/${board.board_id}/cards`, responseBody)
+        .post(`${kBaseUrl}/boards/${board.board_id}/cards`, responseBody)
         .then((response) => {
             setCardsState(cardsState => [...cardsState, response.data]); 
         })

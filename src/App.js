@@ -101,7 +101,7 @@ function App() {
 
   const boards = boardState.map((boardItem) => {
     return (
-      <li>
+      <li className="board-list-item">
         <Board board={boardItem} selectBoard={selectBoard} />
       </li>
     );
@@ -116,17 +116,17 @@ function App() {
       <main className="main-container">
         <section className="board-container">
           <section className="board-list-container">
-            <h2>Boards</h2>
+            <h2 className="h2-board-menu">Boards</h2>
             <ol className="boards">{boards}</ol>
           </section>
 
           <section className="select-board-container">
-            <h2>Selected Board</h2>
+            <h2 className="h2-board-menu">Selected Board</h2>
             <p>{selectBoardMessage}</p>
           </section>
 
           <section className="create-board-container">
-            <h2>Create Board</h2>
+            <h2 className="h2-board-menu">Create Board</h2>
             <section className="new-board-form">
               {isBoardFormVisible ? (
                 ""
