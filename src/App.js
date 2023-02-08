@@ -14,17 +14,6 @@ function App() {
     return { board_id, title, owner };
   };
   /* ---------------API CALLS--------------- */
-  // GET /boards
-  const getAllBoards = () => {
-    return axios
-      .get(`${kBaseUrl}/boards`)
-      .then((response) => {
-        return response.data.map(transformResponse);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
 
   // POST /boards
   const addBoard = (title, owner) => {
@@ -64,17 +53,6 @@ function App() {
     axios.get(`${kBaseUrl}/boards`, {}).then((response) => {
       setBoardState(response.data);
     });
-  }, []);
-
-  // getting all boards
-  const fetchBoards = () => {
-    getAllBoards().then((boards) => {
-      setBoardState(boards);
-    });
-  };
-
-  useEffect(() => {
-    fetchBoards();
   }, []);
 
   const createNewBoard = (title, owner) => {
