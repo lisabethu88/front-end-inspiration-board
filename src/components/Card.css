@@ -26,3 +26,7 @@
 .delete-btn:hover {
     cursor: pointer;
 }
+
+.like-button{
+    cursor: pointer;
+}
