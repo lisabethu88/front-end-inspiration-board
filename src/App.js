@@ -61,7 +61,7 @@ function App() {
 
   // updating board state
   useEffect(() => {
-    axios.get(`${kBaseUrl}boards`, {}).then((response) => {
+    axios.get(`${kBaseUrl}/boards`, {}).then((response) => {
       setBoardState(response.data);
     });
   }, []);
