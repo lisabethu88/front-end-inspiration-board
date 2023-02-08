@@ -50,9 +50,37 @@ const CardList = ({ board }) => {
       });
   };
 
+  // PATCH like_count
+  const addLikeCountForCard = (id, likes_count) => {
+    axios
+      .patch(`${kBaseUrl}/boards/${board.board_id}/cards/${id}`, {
+        likes_count: likes_count,
+      })
+      .then((response) => {
+        console.log(response.likes_count);
+        setCardsState((oldCards) => {
+          return oldCards.map((card) => {
+            if (card.id === id) {
+              return response.data;
+            }
+            return card;
+          });
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   // creates a list of card objects
   const cards = cardsState.map((cardItem) => {
-    return <Card card={cardItem} deleteCardCb={deleteCard} />;
+    return (
+      <Card
+        card={cardItem}
+        deleteCardCb={deleteCard}
+        addLikeCountForCard={addLikeCountForCard}
+      />
+    );
   });
 
   return (

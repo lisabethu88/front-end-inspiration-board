@@ -2,17 +2,27 @@ import React from "react";
 import "./Card.css";
 import PropTypes from "prop-types";
 
-const Card = ({ card, deleteCardCb }) => {
+const Card = ({ card, deleteCardCb, addLikeCountForCard }) => {
   const deleteCard = () => {
     console.log(card.card_id);
     deleteCardCb(card.card_id);
+  };
+
+  const likeCard = () => {
+    card.likes_count += 1;
+    console.log(card.card_id);
+    console.log(card.likes_count);
+    addLikeCountForCard(card.card_id, card.likes_count);
   };
 
   return (
     <section className="sticky">
       <ul className="sticky-ul">
         <li>{card.message}</li>
-        <li>likes: {card.likes_count}</li>
+        <li className="like-btn" onClick={likeCard}>
+          <p>likes: {card.likes_count} </p>
+          <span> ❤️ </span>
+        </li>
         <li className="delete-btn" onClick={deleteCard}>
           delete
         </li>
