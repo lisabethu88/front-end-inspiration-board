@@ -14,3 +14,7 @@
     list-style: none;
     padding: 0;
 }
+
+.delete-btn:hover {
+    cursor: pointer;
+}

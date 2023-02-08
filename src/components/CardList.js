@@ -23,13 +23,13 @@ const CardList = ({ board }) => {
 
   // POST <board id>/cards
   const addNewCard = (message) => {
-    const responseBody = {
+    const requestBody = {
       message: message,
       board_id: board.board_id,
       likes_count: 0,
     };
     return axios
-      .post(`${kBaseUrl}/boards/${board.board_id}/cards`, responseBody)
+      .post(`${kBaseUrl}/boards/${board.board_id}/cards`, requestBody)
       .then((response) => {
         setCardsState((cardsState) => [...cardsState, response.data]);
       })
@@ -37,9 +37,22 @@ const CardList = ({ board }) => {
         console.log(error);
       });
   };
+
+  // DELETE <board_id>/cards/<card_id>
+  const deleteCard = (id) => {
+    axios
+      .delete(`${kBaseUrl}/boards/${board.board_id}/cards/${id}`)
+      .then((response) => {
+        const updatedCardsData = cardsState.filter(
+          (card) => card.card_id !== id
+        );
+        setCardsState(updatedCardsData);
+      });
+  };
+
   // creates a list of card objects
   const cards = cardsState.map((cardItem) => {
-    return <Card card={cardItem} />;
+    return <Card card={cardItem} deleteCardCb={deleteCard} />;
   });
 
   return (
