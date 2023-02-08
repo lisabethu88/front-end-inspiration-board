@@ -29,9 +29,9 @@ const NewCardForm = ({ addNewCard }) => {
                     maxlength="150"
                     minlength="1"
                     value={message}
-                    onChange={handleChange}/><br/>
+                    onChange={handleChange}/><br/><br/>
                     
-                <input type="submit" value="Add New Card"/>
+                <input className="button-class" type="submit" value="Add New Card"/>
             </form>
     </section>
     )

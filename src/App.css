@@ -29,7 +29,26 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
+    font-family: 'Roboto', sans-serif;
+
 }
+
+.button-class {
+    color: #fff;
+    padding: 15px 25px;
+    background-color: rgba(73, 121, 118, 0.694);
+    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
+    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+}
+
 header{
     
     background-color: rgba(73, 121, 118, 0.694);
@@ -53,9 +72,9 @@ h1{
     color: white;
     font-size: 40px;
     text-shadow: 2px 2px 2px #507478;
-    background-color: rgba(59, 42, 27, 0.262);
-    border-radius: 10px;
-    margin: 10px;
+    /* background-color: rgba(59, 42, 27, 0.093); */
+    /* border-radius: 10px;*/
+    margin: 10px; 
 
 }
 .content-container{
@@ -85,6 +104,15 @@ h1{
     text-align: center;
     color: white;
     background: linear-gradient(150deg, rgba(240,166,166,1) 0%, rgba(234,224,218,1) 35%, rgba(234,224,218,1) 53%, rgba(188,206,203,1) 73%, rgba(92,189,185,1) 100%);     /* background-color:  #fbe3e8; */
+
+}
+
+.new-card-form{
+    width: 50%;
+    height:400px;
+    margin: 10px;
+    color: #5cbdb9;
+    font-family: 'Roboto', sans-serif;
 
 }
 
@@ -142,6 +170,7 @@ h1{
 }
 
 .cards-list{
+    padding-bottom: 20px;
     margin-left: 150px;
     display: flex;
     flex-wrap: wrap;

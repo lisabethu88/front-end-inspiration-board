@@ -34,9 +34,9 @@ const NewBoardForm = ({ createNewBoard }) => {
                         id="owner-input" 
                         value={owner}
                         maxlength="40"
-                        onChange={handleOwner}/><br/>
+                        onChange={handleOwner}/><br/><br/>
                 </section>     
-                <input type="submit" value="Submit"/>
+                <input className="button-class" type="submit" value="Submit"/><br/><br/>
             </form>
     )
 

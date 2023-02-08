@@ -133,7 +133,7 @@ function App() {
               ) : (
                 <NewBoardForm createNewBoard={createNewBoard} />
               )}
-              <button onClick={onClickBoardFormButton}>
+              <button className="button-class" onClick={onClickBoardFormButton}>
                 {isBoardFormVisible
                   ? "Show New Board Form"
                   : "Hide New Board Form"}
