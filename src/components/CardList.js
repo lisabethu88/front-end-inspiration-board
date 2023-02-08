@@ -31,6 +31,7 @@ const CardList = ({ board }) => {
     return axios
       .post(`${kBaseUrl}/boards/${board.board_id}/cards`, responseBody)
       .then((response) => {
+        console.log(response)
         setCardsState((cardsState) => [...cardsState, response.data]);
       })
       .catch((error) => {
