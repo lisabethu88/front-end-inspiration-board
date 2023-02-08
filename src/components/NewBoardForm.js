@@ -10,14 +10,19 @@ const NewBoardForm = ({ createNewBoard }) => {
     const handleOwner = (event) => {
         setOwner(event.target.value);
     };
+    
 
     const formSubmit = (event) => {
         event.preventDefault();
-        createNewBoard(title, owner);
+        if ((title.length >0 && title.length <=40) && (owner.length >0 && owner.length <=40) ) {
+            createNewBoard(title, owner);}
+        else {alert("Input length must be between 1-40 characters.");}
         setTitle("");
         setOwner("");
     };
-    
+
+
+
     return (
             <form onSubmit={formSubmit}>
                 <section>
@@ -26,6 +31,7 @@ const NewBoardForm = ({ createNewBoard }) => {
                         type="text" 
                         id="title-input" 
                         value={title}
+                        minlength="1"
                         maxlength="40"
                         onChange={handleTitle}/><br/>
                     <label for="owner-input">Owner</label><br/>
@@ -33,6 +39,7 @@ const NewBoardForm = ({ createNewBoard }) => {
                         type="text" 
                         id="owner-input" 
                         value={owner}
+                        minlength="1"
                         maxlength="40"
                         onChange={handleOwner}/><br/><br/>
                 </section>     

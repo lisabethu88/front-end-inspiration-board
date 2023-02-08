@@ -31,8 +31,7 @@ const CardList = ({ board }) => {
       .then((response) => {
         const updatedCards = cardsState.map((cardItem) => {
           if (cardItem.card_id === id) {
-            cardItem.likes_count = cardItem.likes_count + 1;
-            return cardItem;
+            return response.data;
           } else {
             return cardItem;
           }
@@ -87,6 +86,7 @@ const CardList = ({ board }) => {
   return (
     <section className="card-container">
       <section className="cards-list">
+        <button onClick="sort-cards" id="">sort</button>
         <h2 id="cards-list-label">{board.title}</h2>
         {cards}
       </section>
