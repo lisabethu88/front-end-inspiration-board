@@ -62,16 +62,16 @@ h1{
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
     margin: 10px;
-    color: white;
-    text-shadow: 2px 2px 2px #507478;
+    color: rgba(255, 255, 255, 0.646);
+    text-shadow: 1px 1px 1px #507478; 
     
 
 }
 
 .h2-board-menu{
-    color: white;
+    color: rgba(255, 255, 255, 0.905);
     font-size: 40px;
-    text-shadow: 2px 2px 2px #507478;
+    text-shadow: 1px 1px 1px #507478; 
     /* background-color: rgba(59, 42, 27, 0.093); */
     /* border-radius: 10px;*/
     margin: 10px; 
@@ -107,14 +107,6 @@ h1{
 
 }
 
-.new-card-form{
-    width: 50%;
-    height:400px;
-    margin: 10px;
-    color: #5cbdb9;
-    font-family: 'Roboto', sans-serif;
-
-}
 
 .board-list-container{
     /* background-color: green; */

@@ -28,7 +28,7 @@ const NewCardForm = ({ addNewCard }) => {
         <h2>Create a New Card</h2>
             <form onSubmit={formSubmit}>
                 <label for="message-input">Message</label><br/>
-                <input 
+                <input className="new-card-form-input"
                     type="text" 
                     id="message-input"
                     value={message}
