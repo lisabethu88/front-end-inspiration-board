@@ -10,7 +10,20 @@ const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 const CardList = ({ board }) => {
   /* ------------------- STATE ------------------- */
   const [cardsState, setCardsState] = useState([]);
+  /* ------------------- STATE ------------------- */
+  const [cardsState, setCardsState] = useState([]);
 
+  // If board changes , update  cards
+  useEffect(() => {
+    axios
+      .get(`${kBaseUrl}/boards/${board.board_id}/cards`)
+      .then((response) => {
+        setCardsState(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, [board]);
   // If board changes , update  cards
   useEffect(() => {
     axios
@@ -86,6 +99,9 @@ const CardList = ({ board }) => {
   return (
     <section className="card-container">
       <section className="cards-list">
+        <button onClick="sort-cards" id="">
+          sort
+        </button>
         <h2 id="cards-list-label">{board.title}</h2>
         {cards}
       </section>

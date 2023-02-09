@@ -14,8 +14,13 @@ const NewCardForm = ({ addNewCard }) => {
 
     const formSubmit = (event) => {
         event.preventDefault();
-        addNewCard(message);
-        setMessage("");
+        if (tooLong || tooShort){
+            alert("Input length must be between 1-40 characters.");
+        }
+        else{
+            addNewCard(message);
+            setMessage("");
+        }
     }
 
     return (
@@ -25,9 +30,7 @@ const NewCardForm = ({ addNewCard }) => {
                 <label for="message-input">Message</label><br/>
                 <input 
                     type="text" 
-                    id="message-input" 
-                    maxlength="150"
-                    minlength="1"
+                    id="message-input"
                     value={message}
                     onChange={handleChange}/><br/><br/>
                     
