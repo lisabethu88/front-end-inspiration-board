@@ -10,10 +10,6 @@ const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
 const CardList = ({ board }) => {
   /* ------------------- STATE ------------------- */
   const [cardsState, setCardsState] = useState([]);
-  const [isSorted, setSortedState] = useState(false);
-  const setSorted = () =>{
-    setSortedState(!isSorted)
-  }
 
   // If board changes, update  cards
   useEffect(() => {
@@ -28,15 +24,6 @@ const CardList = ({ board }) => {
     
   }, [board]);
 
-  useEffect(() => {
-    console.log(cardsState)
-    console.log("isSorted")
-    console.log(isSorted)
-    if(isSorted === true){
-      setCardsState(sortCards());
-      setSortedState(false);
-    };
-  },[isSorted]);
 
   // POST <board id>/cards/<card id>
   const updateLikes = (id) => {
@@ -53,7 +40,6 @@ const CardList = ({ board }) => {
         });
         setCardsState(updatedCards);
       })
-
       .catch((error) => {
         console.log(error);
       });
@@ -100,11 +86,11 @@ const CardList = ({ board }) => {
 
 
   const sortCards = () => {
-      cardsState.sort(function(card1, card2) {
-      return card2.likes_count - card1.likes_count;
-    });
-    return cardsState;
-  }
+    const sortedCards = cardsState.sort((a, b) => {
+      return b.likes_count - a.likes_count;
+    }); // b - a for reverse sort
+    setCardsState([...sortedCards]);
+  };
 
 
   return (
@@ -112,7 +98,7 @@ const CardList = ({ board }) => {
       <section className="cards-list">
       <button 
       className="button-class" 
-      onClick={setSorted}>Sort by Likes</button>
+      onClick={sortCards}>Sort by Likes</button>
         <h2 id="cards-list-label">Cards for {board.title}</h2>      
         {cards} 
       </section>        
