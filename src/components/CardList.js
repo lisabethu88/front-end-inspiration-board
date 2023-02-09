@@ -5,7 +5,7 @@ import NewCardForm from "./NewCardForm";
 import PropTypes from "prop-types";
 import axios from "axios";
 
-const kBaseUrl = "https://inspiration-board-be.herokuapp.com";
+const kBaseUrl = https://inspiration-board-be.herokuapp.com
 
 const CardList = ({ board }) => {
 
