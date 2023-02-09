@@ -73,7 +73,7 @@ const CardList = ({ board }) => {
       });
   };
 
-  const cards = cardsState.map((cardItem) => {
+  let cards = cardsState.map((cardItem) => {
     return (
       <Card
         card={cardItem}
@@ -83,10 +83,21 @@ const CardList = ({ board }) => {
     );
   });
 
+  const sortCard = () => {
+    // sortedCards
+    const sortedCards = cardsState.sort((a, b) => {
+      return b.likes_count - a.likes_count;
+    }); // b - a for reverse sort
+    console.log(sortedCards);
+    setCardsState((cardsState) => [...cardsState, sortedCards]);
+  };
+
   return (
     <section className="card-container">
       <section className="cards-list">
-        <button onClick="sort-cards" id="">sort</button>
+        <button onClick={sortCard} id="">
+          sort
+        </button>
         <h2 id="cards-list-label">{board.title}</h2>
         {cards}
       </section>
