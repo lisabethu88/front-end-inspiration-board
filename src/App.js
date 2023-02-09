@@ -5,7 +5,7 @@ import CardList from "./components/CardList";
 import NewBoardForm from "./components/NewBoardForm";
 import axios from "axios";
 
-const kBaseUrl = process.env.REACT_APP_BACKEND_URL;
+const kBaseUrl = "https://inspiration-board-be.herokuapp.com";
 
 function App() {
   // for formatting HTTP response

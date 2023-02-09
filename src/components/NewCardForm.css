@@ -4,12 +4,11 @@
     margin: 10px;
     color: #5cbdb9;
     font-family: 'Roboto', sans-serif;
-
-
 }
 
 .new-card-form-input{
     border-radius: 15px;
-    height: 150px;
-    width:150px;
+    height: 75px; 
+    padding: 10px;
+    vertical-align: text-top; 
 }

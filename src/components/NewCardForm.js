@@ -28,11 +28,10 @@ const NewCardForm = ({ addNewCard }) => {
         <h2>Create a New Card</h2>
             <form onSubmit={formSubmit}>
                 <label for="message-input">Message</label><br/>
-                <input className="new-card-form-input"
-                    type="text" 
-                    id="message-input"
+                <textarea className="new-card-form-input"
                     value={message}
-                    onChange={handleChange}/><br/><br/>
+                    onChange={handleChange}>
+                    </textarea><br/><br/>
                     
                 <input className="button-class" type="submit" value="Add New Card"/>
             </form>
