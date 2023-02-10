@@ -4,6 +4,7 @@ import Board from "./components/Board";
 import CardList from "./components/CardList";
 import NewBoardForm from "./components/NewBoardForm";
 import axios from "axios";
+import logo from './images/logo.jpg';
 
 const kBaseUrl = "https://inspiration-board-be.herokuapp.com";
 
@@ -32,29 +33,19 @@ function App() {
   };
 
   /* ------------------- STATE ------------------- */
-  // getting state of the selected board, initially
-  // a dictionary of empty strings
+  // get initial state
   const [selectedBoard, setSelectedBoard] = useState({
     board_id: "",
     title: "",
     owner: "",
   });
+  const [boardState, setBoardState] = useState([]);
+  const [isBoardFormVisible, setVisibility] = useState(false);
 
-  // set the state of the selected board
+  // set the state
   const selectBoard = (board) => {
     setSelectedBoard(board);
   };
-
-  // getting state of the board, initally an empty list
-  const [boardState, setBoardState] = useState([]);
-
-  // updating board state
-  useEffect(() => {
-    axios.get(`${kBaseUrl}/boards`, {}).then((response) => {
-      setBoardState(response.data);
-    });
-  }, []);
-
   const createNewBoard = (title, owner) => {
     addBoard(title, owner)
       .then((newBoard) => {
@@ -64,13 +55,11 @@ function App() {
         console.log(error);
       });
   };
+
   const selectMsg = `${selectedBoard.title} board created by ${selectedBoard.owner}`;
   const unselectMsg = "Select a Board from the Board List";
   const selectBoardMessage = selectedBoard.board_id ? selectMsg : unselectMsg;
-
-  const [isBoardFormVisible, setVisibility] = useState(false);
   const onClickBoardFormButton = () => setVisibility(!isBoardFormVisible);
-
   const showBoard = selectedBoard.board_id ? (
     <CardList board={selectedBoard} />
   ) : (
@@ -85,9 +74,17 @@ function App() {
     );
   });
 
+  // setting board state
+  useEffect(() => {
+    axios.get(`${kBaseUrl}/boards`, {}).then((response) => {
+      setBoardState(response.data);
+    });
+  }, []);
+
   return (
     <section className="content-container">
       <header className="app-header">
+        <img className="logo" alt="logo" src={logo}/>
         <h1>Inspiration Board</h1>
       </header>
 
@@ -95,7 +92,7 @@ function App() {
         <section className="board-container">
           <section className="board-list-container">
             <h2 className="h2-board-menu">Boards</h2>
-            <ol className="boards">{boards}</ol>
+            <ul className="boards">{boards}</ul>
           </section>
 
           <section className="select-board-container">

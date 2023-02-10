@@ -107,16 +107,21 @@ const CardList = ({ board }) => {
   return (
     <section className="card-container">      
       <section className="cards-list">
-      <button 
-      className="button-class" 
+        <button 
+      className="button-class-sort" 
       onClick={sortCards}>Sort by Likes</button>
-        <h2 id="cards-list-label">Cards for {board.title}</h2>      
+        <h2 id="cards-list-label"> 📌 <br /> Cards for {board.title}</h2>      
         {cards} 
       </section>        
 
       <NewCardForm addNewCard={addNewCard} />
     </section>
   );
+};
+
+Card.propTypes = {
+  title: PropTypes.string.isRequired,
+  board_id: PropTypes.number.isRequired
 };
 
 export default CardList;

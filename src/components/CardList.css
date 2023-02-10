@@ -1,31 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&display=swap');
+
+
 #cards-list-label{
     font-size: 25px;
     color:rgba(24, 18, 18, 0.751);
     text-align: center;
     font-family: 'Gloria Hallelujah', cursive;
-    padding:10px;
+    padding-top:0;
+    padding-bottom: 20px;
     height:min-content;
-    width: 100%;
-    background-color: rgb(244, 240, 232);
-    margin:20px;
+    width: 250px;
+    background-color: rgb(255, 255, 255);
+    margin:10px;
     box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
-    -webkit-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
-    -moz-box-shadow: -3px 5px 7px -1px rgba(0,0,0,0.47);
 }
 
-.button-class {
-    color: #fff;
-    padding: 15px 25px;
-    background-color: rgba(73, 121, 118, 0.694);
-    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
-    border-radius: 14px;
-    font-weight: bold;
-    font-size: 16px;
+.button-class-sort {
+    margin:10px;
+    height:fit-content;
+    padding: 10px;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(to bottom right, #3e9190, #6af1e8ad);
     border: 0;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    border-radius: 12px;
+    color: #FFFFFF;
     cursor: pointer;
-    margin:10;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.button-class-sort:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239, 0.5), .125rem .125rem 1rem rgba(90, 255, 233, 0.5);
+}
+
+.button-class-sort:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239, 0.5), .125rem .125rem 1rem rgba(90, 255, 233, 0.5);
 }

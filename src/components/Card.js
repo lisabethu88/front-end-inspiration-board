@@ -15,7 +15,7 @@ const Card = ({ card, deleteCardCb, updateLikes }) => {
     <section className="sticky">
         <p>{card.message}</p>
         <ul>
-        <li className="like-button" onClick={updateCard}>+1</li>
+        <li className="like-button" onClick={updateCard}>👍</li>
         <li>{card.likes_count} 💞</li>
         <li className="delete-btn" onClick={deleteCard}>🗑️</li>
         </ul>

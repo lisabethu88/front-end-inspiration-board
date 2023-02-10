@@ -25,8 +25,8 @@ const NewCardForm = ({ addNewCard }) => {
 
     return (
     <section className="new-card-form">
-        <h2>Create a New Card</h2>
-            <form onSubmit={formSubmit}>
+        <h2 className="card-form-label" >Create a New Card</h2>
+            <form className="card-form" onSubmit={formSubmit}>
                 <label for="message-input">Message</label><br/>
                 <textarea className="new-card-form-input"
                     value={message}

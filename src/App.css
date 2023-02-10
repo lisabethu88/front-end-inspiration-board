@@ -1,28 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Roboto&display=swap');
 @media screen and (max-width: 550px) {
     header div.logo {
-      margin-left: 0.5rem;
+        margin-left: 0.5rem;
     }
     header div.logo img {
-      width: 35px;
-      height: 35px;
+        width: 35px;
+        height: 35px;
     }
-  }
+    }
 html {
     width: 100%;
     height: 100%;
     margin: 0px;
     padding: 0px;
     overflow-x: hidden; 
-
+    background-color: #538181;
     
 }
 
 body {
-    background-color:white;
     width: 100%;
     height: 100%;
-    background: rgb(255,255,255);    
 }
 
 #root {
@@ -34,46 +32,62 @@ body {
 }
 
 .button-class {
-    color: #fff;
-    padding: 15px 25px;
-    background-color: rgba(73, 121, 118, 0.694);
-    background-image: radial-gradient(93% 87% at 87% 89%, rgba(0, 0, 0, 0.23) 0%, transparent 86.18%), radial-gradient(66% 66% at 26% 20%, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-    box-shadow: inset -3px -3px 9px rgba(255, 255, 255, 0.25), inset 0px 3px 9px rgba(255, 255, 255, 0.3), inset 0px 1px 1px rgba(255, 255, 255, 0.6), inset 0px -8px 36px rgba(0, 0, 0, 0.3), inset 0px 1px 5px rgba(255, 255, 255, 0.6), 2px 19px 31px rgba(0, 0, 0, 0.2);
-    border-radius: 14px;
-    font-weight: bold;
-    font-size: 16px;
+    background: linear-gradient(to bottom right, #3e9190, #6af1e8ad);
     border: 0;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+    border-radius: 12px;
+    color: #FFFFFF;
     cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2.5;
+    outline: transparent;
+    padding: 0 1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: box-shadow .2s ease-in-out;
+    user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+}
+
+.button-class:not([disabled]):focus {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239, 0.5), .125rem .125rem 1rem rgba(90, 255, 233, 0.5);
+}
+
+.button-class:not([disabled]):hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239, 0.5), .125rem .125rem 1rem rgba(90, 255, 233, 0.5);
 }
 
 header{
-    
-    background-color: rgba(73, 121, 118, 0.694);
-    padding: 10px;
-    box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
-    -webkit-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
-    -moz-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    padding-top: 10px;
+    padding-left: 30px;
+    height:80px;
+    background-color: #255559;
+    border-bottom: 1px solid #163a3d5b;
+
 }
 
 h1{
+    position: relative;
+    bottom:35px;
+    left: 10px;
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
-    margin: 10px;
-    color: rgba(255, 255, 255, 0.646);
-    text-shadow: 1px 1px 1px #507478; 
-    
+    margin-left: 50px;
+    color: white;
+    text-shadow: 1px 1px 1px #1d3030;
 
 }
 
 .h2-board-menu{
-    color: rgba(255, 255, 255, 0.905);
+    margin-left: 10px;
+    margin-right: 10px;
+    border-radius: 15px;
+    background-color: #4a8f8e5b;
+    color: white;
     font-size: 40px;
-    text-shadow: 1px 1px 1px #507478; 
-    /* background-color: rgba(59, 42, 27, 0.093); */
-    /* border-radius: 10px;*/
+    text-shadow: 1px 1px 1px #163a3d; 
     margin: 10px; 
 
 }
@@ -94,96 +108,108 @@ h1{
 }
 
 .board-container{
-    border:1px solid #50747870;
     font-family: 'Roboto', sans-serif;
-     /* border: 2px dotted red; */
     padding: 10px;
     margin-bottom:0;
     display: flex;
     width:100%;
+    margin-top: 0px;
     text-align: center;
     color: white;
-    background: linear-gradient(150deg, rgba(240,166,166,1) 0%, rgba(234,224,218,1) 35%, rgba(234,224,218,1) 53%, rgba(188,206,203,1) 73%, rgba(92,189,185,1) 100%);     /* background-color:  #fbe3e8; */
+    min-width:fit-content;
 
 }
 
 
 .board-list-container{
-    /* background-color: green; */
-    /* border: 2px dotted red; */
+    background-color: #2f686c;
+    border-radius: 15px;
+    margin:10px;
     width: 100%;
     height: 100%;
     
 }
 
 .boards{
-    box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
-    -webkit-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
-    -moz-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
+    padding: 5px;
+    list-style: none;
+    box-shadow: 1px 1px 1px 2px rgba(0,0,0,0.47) inset;
     color: #337270;
     background-color:white;
     height:200px;
     text-align: center;
     overflow:auto;
-    margin-left: 100px;
     margin:0px 50px 50px 50px; 
     border-radius: 15px;
+    border: 1px solid rgba(69, 112, 102, 0.495);
+    
+
 }
 
-
 .select-board-container{
-    /* background-color: blue; */
-    /* border: 2px dotted red; */
-    margin:auto;
+    background-color: #2f686c;
+    border-radius: 15px;
+    margin:10px;
     width: 100%;
     height: 100%;
-    color: #337270;
+    color: white;
     font-size: 20px;
+    text-shadow: 1px 1px 1px #163a3d; 
 }
 
 .create-board-container{
-    /* background-color: purple; */
-    /* border: 2px dotted red; */
-    margin:auto;
+    border-radius: 15px;
+    background-color: #2f686c;
+    margin:10px;
     width: 100%;
     height: 100%;
-    color: #337270;
+    color: white;
+    text-shadow: 1px 1px 1px #163a3d; 
 }
 
 .card-container{
     width:100%;
-    /* background-color: greenyellow; */
-    /* border: 2px dotted red; */
     padding: 10px;
     display: flex;
-    margin: 0;
-    text-align: center;
+    margin:50px;
+    
     
 }
 
 .cards-list{
+    margin-right: 2px;
     padding-bottom: 20px;
-    margin-left: 150px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    justify-content: center;
     align-items: auto;
     align-content: start;
     border: 10px solid #ddd;
     border-radius: 15px;
     position: relative;
-    width:1000px;
-    height:100%;
-    min-height: 400px;
+    width:900px;
+    height: 100%;
+    min-height: 500px;
     background-image: url("./images/bg.jpg");
     background-repeat: repeat;
     overflow:hidden;
     box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
-    -webkit-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
-    -moz-box-shadow: 1px 1px 7px 2px rgba(0,0,0,0.47) inset;
 }
 
 .new-board-form{
     text-align: center;
+}
+
+
+.board-list-item:hover{
+        background-color: rgba(72, 184, 189, 0.5);
+        color: white;
+        cursor:pointer;
+}
+
+.logo{
+    float: left;
+    width: 70px;
+    height: 70px;
+    bottom:10px;
 }

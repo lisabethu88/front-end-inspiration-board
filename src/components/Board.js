@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 const Board = ({ board, selectBoard }) => {
     return (
-        <p className="board-list-item" onClick={()=>selectBoard(board)}> 
+        <p className="board-list-p" onClick={()=>selectBoard(board)}> 
             { board.title }
         </p>
     )
@@ -12,6 +12,7 @@ const Board = ({ board, selectBoard }) => {
 };
 
 Board.propTypes = {
+    title: PropTypes.string.isRequired
 };
 
 export default Board;

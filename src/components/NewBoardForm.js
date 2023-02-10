@@ -11,7 +11,6 @@ const NewBoardForm = ({ createNewBoard }) => {
         setOwner(event.target.value);
     };
 
-
     const formSubmit = (event) => {
         event.preventDefault();
         if ((title.length >0 && title.length <=20) && (owner.length >0 && owner.length <=20) ) {
@@ -20,8 +19,6 @@ const NewBoardForm = ({ createNewBoard }) => {
         setTitle("");
         setOwner("");
     };
-
-
 
     return (
             <form onSubmit={formSubmit}>
