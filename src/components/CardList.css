@@ -39,10 +39,6 @@
     white-space: nowrap;
 }
 
-.button-class-sort:not([disabled]):focus {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239, 0.5), .125rem .125rem 1rem rgba(90, 255, 233, 0.5);
-}
-
-.button-class-sort:not([disabled]):hover {
-  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239, 0.5), .125rem .125rem 1rem rgba(90, 255, 233, 0.5);
+.button-class-sort:hover {
+  box-shadow: 0 0 .25rem rgba(0, 0, 0, 0.5), -.125rem -.125rem 1rem rgba(71, 231, 239), .125rem .125rem 1rem rgba(90, 255, 233);
 }
