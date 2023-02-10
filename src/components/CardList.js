@@ -24,17 +24,6 @@ const CardList = ({ board }) => {
         });
     
   }, [board]);
-  // If board changes , update  cards
-  useEffect(() => {
-    axios
-      .get(`${kBaseUrl}/boards/${board.board_id}/cards`)
-      .then((response) => {
-        setCardsState(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, [board]);
 
   // PUT <board id>/cards/<card id>
   const updateLikes = (id) => {
